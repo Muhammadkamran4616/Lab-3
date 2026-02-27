@@ -1,0 +1,22 @@
+<html>
+     <title>Task 11</title>
+    <body>
+  <h1>ArrayBuffer</h1>
+        <h2>Check Console for Output</h2>
+                <script>
+            const buffer = new ArrayBuffer(16);
+const view = new Uint8Array(buffer);
+
+for (let i = 0; i < view.length; i++) {
+    view[i] = i + 65;
+}
+
+console.log("Uint8Array:", view);
+
+const decoder = new TextDecoder();
+const decoded = decoder.decode(view);
+
+console.log("Decoded String:", decoded);
+        </script>
+    </body>
+</html>

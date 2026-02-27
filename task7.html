@@ -1,0 +1,32 @@
+<html>
+     <title>Task 7</title>
+    <body>
+  <h1>AsyncAwait</h1>
+        <h3>Check Console for Output</h3>       
+         <script>
+            function login() {
+    return new Promise(resolve => {
+        setTimeout(() => resolve({ userId: 1 }), 1000);
+    });
+}
+
+function getProfile(userId) {
+    return new Promise(resolve => {
+        setTimeout(() => resolve({ name: "Kamran" }), 1000);
+    });
+}
+
+async function fetchUser() {
+    try {
+        const user = await login();
+        const profile = await getProfile(user.userId);
+        console.log(profile);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+fetchUser();
+        </script>
+    </body>
+</html>

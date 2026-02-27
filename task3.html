@@ -1,0 +1,29 @@
+<html>
+     <title>Task 3</title>
+    <body>
+  <h1>PromiseChaining</h1>
+        <h3>Check Console for Output</h3>        
+        <script>
+            function fetchProductIDs() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve([101, 102, 103]);
+        }, 1000);
+    });
+}
+
+function fetchProductDetails(id) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve({ id: id, name: "Product " + id });
+        }, 1000);
+    });
+}
+
+fetchProductIDs()
+    .then(ids => fetchProductDetails(ids[0]))
+    .then(product => console.log("Product Details:", product))
+    .catch(error => console.error(error));
+        </script>
+    </body>
+</html>

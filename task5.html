@@ -1,0 +1,19 @@
+<html>
+     <title>Task 5</title>
+    <body>
+  <h1>PromiseRace</h1>
+        <h3>Check Console for Output</h3>        
+        <script>
+            const promise1 = new Promise(resolve =>
+    setTimeout(() => resolve("Resolved in 1 second"), 1000)
+);
+
+const promise2 = new Promise(resolve =>
+    setTimeout(() => resolve("Resolved in 3 seconds"), 3000)
+);
+
+Promise.race([promise1, promise2])
+    .then(result => console.log("Winner:", result));
+        </script>
+    </body>
+</html>

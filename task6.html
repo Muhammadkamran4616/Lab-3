@@ -1,0 +1,27 @@
+<html>
+     <title>Task 6</title>
+    <body>
+  <h1>Promisification</h1>
+        <h3>Check Console for Output</h3>        
+        <script>
+            function checkStatus(callback) {
+    setTimeout(() => {
+        callback(null, "Status OK");
+    }, 2000);
+}
+
+function checkStatusPromise() {
+    return new Promise((resolve, reject) => {
+        checkStatus((error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+        });
+    });
+}
+
+checkStatusPromise()
+    .then(result => console.log(result))
+    .catch(error => console.error(error));
+        </script>
+    </body>
+</html>
